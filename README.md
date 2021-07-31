@@ -34,8 +34,36 @@ Default output format [None]:
 
 
 ### 2. Use aws-cli with `--endpoint-url` option
-
 ```sh
 $ aws --profile minio --endpoint-url http://0.0.0.0:9000 s3 ls
 ```
+
+
+## How to create public web page
+
+### 1. Create file
+```sh
+cat - << EOS > index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks MINIO</title>
+</head>
+<body>
+    This is static web sites.
+</body>
+</html>
+EOS
+```
+
+### 2. Copy to S3
+```sh
+$ aws --profile minio --endpoint-url http://0.0.0.0:9000 s3 cp ./index.html s3://test-bucket/
+```
+
+### 3. Open in Web browser.
+[http://0.0.0.0:9000/test-bucket/index.html](http://0.0.0.0:9000/test-bucket/index.html)
 
