@@ -5,7 +5,7 @@ It can be reproduce public access of S3 bucket.
 ## Installation
 ### 0. Setting
 You can modify username, password, and bucket name.  
-Please modify [.env](./env) file.
+Please modify [.env](./.env) file.
 
 ### 1. Launch
 ```
